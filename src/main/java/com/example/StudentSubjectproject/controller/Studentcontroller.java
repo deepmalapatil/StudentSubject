@@ -17,6 +17,7 @@ public class Studentcontroller {
 
     @RequestMapping(method = RequestMethod.GET , value="/Getall")
     public List<Student> getallstudent(){
+
         return studentservice.getallstudent();
     }
 
@@ -33,8 +34,10 @@ public class Studentcontroller {
     public void deletstudent(@PathVariable  Integer id){
         studentservice.deletstudent(id);
     }
+
     @RequestMapping(method=RequestMethod.GET ,value = "/Getbyid/{id}")
     public Optional<Student> getstudentbyid(@PathVariable Integer id){
         return studentservice.getstudentbyid(id);
     }
 }
+//add more method

@@ -41,5 +41,5 @@ public class Subjectcontroller {
         Optional<Subject> subject=subjectservice.getReferenceById(id);
         return subject;
     }
-}
+}//add more method
 
