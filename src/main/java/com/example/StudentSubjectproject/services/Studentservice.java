@@ -24,19 +24,14 @@ public class Studentservice {
     }
 
     public void addstudent(Student student){
+
         studentrepository.save(student);
     }
     public void updatestudent(Student student){
-        try {
-            studentrepository.saveAndFlush(student);
-        }
-        catch(Exception ex)
-        {
-            System.out.print(ex.toString());
-        }
-
+            studentrepository.save(student);
     }
     public void deletstudent(int id){
+
         studentrepository.deleteById(id);
     }
 
@@ -44,4 +39,4 @@ public class Studentservice {
         return studentrepository.findById(id);
 
     }
-}
+   }
