@@ -28,7 +28,12 @@ public class Subjectservice {
     }
 
     public void updatesubject(Subject subject) {
-        subjectRepository.save(subject);
+        try {
+            subjectRepository.save(subject);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+
+        }
     }
 
     public void deletsubject(int id){
