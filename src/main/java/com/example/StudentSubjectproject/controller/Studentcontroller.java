@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.StudentSubjectproject.services.Studentservice;
 
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,5 +40,12 @@ public class Studentcontroller {
     public Optional<Student> getstudentbyid(@PathVariable Integer id){
         return studentservice.getstudentbyid(id);
     }
+
+    @RequestMapping(method=RequestMethod.GET , value ="/Getbyname/{name}")
+     public List<Student> Getbyname(@PathVariable("name") String name)   {
+
+        return studentservice.getbyname(name);
+    }
+
 }
-//add more method
+//add more me
