@@ -1,15 +1,17 @@
 package com.example.StudentSubjectproject.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="employee1")
 public class Employee {
     @Id
-    int id;
+    @Column(name="id")
+    int eid;
     String name;
     int age;
     final int dptno=1;
@@ -18,11 +20,11 @@ public class Employee {
 
 
     public int getId() {
-        return id;
+        return eid;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.eid = eid;
     }
 
     public String getName() {

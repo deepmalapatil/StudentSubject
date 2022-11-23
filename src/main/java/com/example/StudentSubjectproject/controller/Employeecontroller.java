@@ -5,6 +5,7 @@ import com.example.StudentSubjectproject.services.Employeeservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +40,11 @@ public class Employeecontroller {
       return employeeservice.findbyid(id) ;
     }
 
+    @GetMapping(value="/getbyname/{name}")
+    public Employee getbyname(@PathVariable String name){
+
+             return employeeservice.getbyname(name);
+    }
 
 
 }
