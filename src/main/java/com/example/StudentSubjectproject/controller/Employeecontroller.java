@@ -26,6 +26,7 @@ public class Employeecontroller {
     }
     @PostMapping(value="/Updateemp")
     public void Updateemployee(@RequestBody Employee employee){
+
         employeeservice.updateemployee(employee);
     }
 
@@ -35,9 +36,10 @@ public class Employeecontroller {
     }
 
     @GetMapping(value="/getbyid/{id}")
-    public Optional<Employee> findbyid(@PathVariable Integer id)
+    public Employee findbyid(@PathVariable Integer id)
     {
-      return employeeservice.findbyid(id) ;
+
+        return employeeservice.findbyid(id);
     }
 
     @GetMapping(value="/getbyname/{name}")
@@ -46,7 +48,16 @@ public class Employeecontroller {
              return employeeservice.getbyname(name);
     }
 
+    @GetMapping(value="/getbysalary/{salary}")
+    public Employee getbysalary(@PathVariable float salary){
 
+        return employeeservice.GetBySalary(salary);
+
+    }
+    @GetMapping(value="/getbyage/{age}")
+    public Employee getbyage(@PathVariable Integer age){
+        return employeeservice.Getbyage(age);
+    }
 }
 
 
