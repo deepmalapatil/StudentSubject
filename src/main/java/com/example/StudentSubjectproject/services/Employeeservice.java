@@ -6,10 +6,8 @@ import com.example.StudentSubjectproject.repository.Subjectrepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Service
 public class Employeeservice {
@@ -44,12 +42,12 @@ public class Employeeservice {
         Employee employee = new Employee();
         List<Employee> emp = employeerepository.findAll();
         for (Employee employee1 : emp) {
-            if(Objects.equals(employee1.getId(), id)){
+            if (Objects.equals(employee1.getId(), id)) {
                 employee = employee1;
-            break;
+                break;
+            }
         }
-    }
-       return employee;
+        return employee;
     }
 
     // Get by name mathod
@@ -71,7 +69,7 @@ public class Employeeservice {
         Employee emp = new Employee();
         List<Employee> employeeList = employeerepository.findAll();
         for (Employee employee : employeeList) {
-            if (employee.getSalary()==Salary) {
+            if (employee.getSalary() == Salary) {
                 emp = employee;
                 break;
             }
@@ -84,14 +82,25 @@ public class Employeeservice {
         Employee emp = new Employee();
         List<Employee> employeeList = employeerepository.findAll();
         for (Employee employee : employeeList) {
-            if (employee.getAge()==age) {
+            if (employee.getAge() == age) {
                 emp = employee;
                 break;
             }
         }
-return emp;
+        return emp;
     }
 
+    //get list and delet one name and return other list
+
+    public List<Employee> getupdatedlist(String name) {
+        List<Employee> employeeList = employeerepository.findAll();
+
+        for (Employee emp : employeeList) {
+            if (emp.getName().trim().equalsIgnoreCase(name)) {
+                employeeList.remove(emp);
+                break;
+            }
+        }
+        return employeeList;
+    }
 }
-
-

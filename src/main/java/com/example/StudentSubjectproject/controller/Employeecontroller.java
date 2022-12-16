@@ -56,7 +56,12 @@ public class Employeecontroller {
     }
     @GetMapping(value="/getbyage/{age}")
     public Employee getbyage(@PathVariable Integer age){
+
         return employeeservice.Getbyage(age);
+    }
+    @GetMapping(value="/Getupdatedlist/{name}")
+    public List<Employee> getupdatedlist(@PathVariable String name){
+        return employeeservice.getupdatedlist(name);
     }
 }
 
